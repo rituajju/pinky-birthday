@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Pinky ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(135deg, #ffb6d9, #d9b8ff, #ffc6a8);
+    color: #63264f;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 15px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: fadeIn 0.8s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    font-size: clamp(2rem, 7vw, 3.2rem);
+    margin-bottom: 18px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 12px auto;
+}
+
+.card {
+    background: #ffffffdf;
+    border-radius: 25px;
+    padding: 28px 20px;
+    width: min(95%, 850px);
+    box-shadow: 0 10px 35px #75406b35;
+}
+
+button {
+    border: none;
+    padding: 14px 28px;
+    margin: 12px;
+    border-radius: 30px;
+    background: #ff4f9a;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #a44b7860;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.07);
+    background: #e72c83;
+}
+
+.heart {
+    font-size: 55px;
+    animation: heartbeat 1.2s infinite;
+}
+
+/* TWO PHOTO LAYOUT */
+
+.photo-pair {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 600px;
+    margin: 22px auto;
+}
+
+.photo-pair img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 17px;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px #65365b35;
+    transition: 0.3s;
+}
+
+/* COMPLETE 13 PHOTO GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    width: 100%;
+    margin: 22px auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px #65365b35;
+    transition: 0.3s;
+}
+
+.photo-pair img:hover,
+.gallery img:hover {
+    transform: scale(1.04);
+}
+
+.memory {
+    background: #fff0f7;
+    padding: 22px;
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 650px;
+}
+
+.progress {
+    margin-top: 22px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.heart-float {
+    position: fixed;
+    bottom: -30px;
+    animation: floatUp 6s linear infinite;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery img {
+        height: 155px;
+    }
+
+    .photo-pair img {
+        height: 165px;
+    }
+
+    .card {
+        padding: 22px 14px;
+    }
+
+    button {
+        padding: 12px 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================================= -->
+<!-- SCREEN 1 : WELCOME -->
+<!-- ================================= -->
+
+<section class="screen active" id="screen1">
+
+    <div class="card">
+
+        <div class="heart">💗</div>
+
+        <h1>Hey Pinky! 🎀</h1>
+
+        <h2>Someone has a little surprise for you!</h2>
+
+        <p>
+            A special day deserves a special celebration.
+            And this one is all about YOU! ❤️
+        </p>
+
+        <div class="photo-pair">
+            <img src="images/photo01.jpg" alt="Our memory 1">
+            <img src="images/photo02.jpg" alt="Our memory 2">
+        </div>
+
+        <p>
+            Ready to discover something special?
+        </p>
+
+        <button onclick="nextScreen(2)">
+            Open Your Surprise ✨
+        </button>
+
+    </div>
+
+    <div class="progress">1 / 6</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- SCREEN 2 : BIRTHDAY WISHES -->
+<!-- ================================= -->
+
+<section class="screen" id="screen2">
+
+    <div class="card">
+
+        <h1>Happy Birthday! 🎂</h1>
+
+        <div class="heart">🥳</div>
+
+        <h2>Dear Pinky Chaudhary ❤️</h2>
+
+        <p>
+            May your life always be filled with laughter,
+            endless happiness, beautiful memories,
+            unexpected adventures and all the love
+            your heart deserves.
+        </p>
+
+        <p>
+            Keep smiling, keep shining and never stop
+            being the wonderful person you are!
+        </p>
+
+        <div class="photo-pair">
+            <img src="images/photo03.jpg" alt="Birthday memory 3">
+            <img src="images/photo04.jpg" alt="Birthday memory 4">
+        </div>
+
+        <button onclick="nextScreen(3)">
+            There's More! 💕
+        </button>
+
+    </div>
+
+    <div class="progress">2 / 6</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- SCREEN 3 : 19 YEARS FRIENDSHIP -->
+<!-- ================================= -->
+
+<section class="screen" id="screen3">
+
+    <div class="card">
+
+        <h1>19 Years of Friendship! 🥹</h1>
+
+        <div class="heart">👭</div>
+
+        <div class="memory">
+
+            <p>
+                From being little kids in Class 4 to growing
+                up and making countless memories...
+            </p>
+
+            <h2>19 YEARS! ❤️</h2>
+
+            <p>
+                Nineteen years of friendship, laughter,
+                silly fights, endless conversations and
+                memories that will stay forever.
+            </p>
+
+            <p>
+                We have grown up, but some bonds never
+                grow old. And ours is definitely one of them!
+            </p>
+
+            <p>
+                Here's to all the beautiful memories
+                we have made and all those still waiting for us.
+            </p>
+
+        </div>
+
+        <div class="photo-pair">
+            <img src="images/photo05.jpg" alt="Friendship memory 5">
+            <img src="images/photo06.jpg" alt="Friendship memory 6">
+        </div>
+
+        <button onclick="nextScreen(4)">
+            Relive Our Memories 📸
+        </button>
+
+    </div>
+
+    <div class="progress">3 / 6</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- SCREEN 4 : ALL 13 PHOTOS -->
+<!-- ================================= -->
+
+<section class="screen" id="screen4">
+
+    <div class="card">
+
+        <h1>Our Little Memory Lane 📸</h1>
+
+        <div class="heart">💞</div>
+
+        <h2>13 Pictures, Countless Memories ❤️</h2>
+
+        <p>
+            Every picture has a story, every smile has
+            a memory, and every moment is special.
+        </p>
+
+        <div class="gallery">
+
+            <img src="images/photo01.jpg" alt="Memory 1">
+            <img src="images/photo02.jpg" alt="Memory 2">
+            <img src="images/photo03.jpg" alt="Memory 3">
+            <img src="images/photo04.jpg" alt="Memory 4">
+            <img src="images/photo05.jpg" alt="Memory 5">
+            <img src="images/photo06.jpg" alt="Memory 6">
+            <img src="images/photo07.jpg" alt="Memory 7">
+            <img src="images/photo08.jpg" alt="Memory 8">
+            <img src="images/photo09.jpg" alt="Memory 9">
+            <img src="images/photo10.jpg" alt="Memory 10">
+            <img src="images/photo11.jpg" alt="Memory 11">
+            <img src="images/photo12.jpg" alt="Memory 12">
+            <img src="images/photo01.jpg" alt="Memory 1">
+
+        </div>
+
+        <p>
+            And many more memories yet to be created! 🥰
+        </p>
+
+        <button onclick="nextScreen(5)">
+            One Last Question 💌
+        </button>
+
+    </div>
+
+    <div class="progress">4 / 6</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- SCREEN 5 : FUN QUESTION -->
+<!-- ================================= -->
+
+<section class="screen" id="screen5">
+
+    <div class="card">
+
+        <div class="heart">🥺💕</div>
+
+        <h1>A Little Question!</h1>
+
+        <h2>
+            Pinky, will you promise to stay this crazy forever?
+        </h2>
+
+        <p>
+            Because life is so much more fun with
+            your madness, laughter and endless drama!
+        </p>
+
+        <div class="photo-pair">
+            <img src="images/photo07.jpg" alt="Special memory 7">
+            <img src="images/photo08.jpg" alt="Special memory 8">
+        </div>
+
+        <button onclick="celebrate()">
+            YES! Obviously ❤️
+        </button>
+
+        <button onclick="celebrate()">
+            NO! Never 😜
+        </button>
+
+        <p id="answer"></p>
+
+    </div>
+
+    <div class="progress">5 / 6</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- SCREEN 6 : FINAL MESSAGE -->
+<!-- ================================= -->
+
+<section class="screen" id="screen6">
+
+    <div class="card">
+
+        <div class="heart">🎂💖🎉</div>
+
+        <h1>Happy Birthday, Pinky!</h1>
+
+        <h2>With Lots of Love, Ritu ❤️</h2>
+
+        <div class="photo-pair">
+            <img src="images/photo11.jpg" alt="Beautiful memory 12">
+            <img src="images/photo04.jpg" alt="Beautiful memory 4">
+        </div>
+
+        <p>
+            No matter how much time passes,
+            no matter how busy life gets,
+            some friendships are forever.
+        </p>
+
+        <p>
+            Thank you for being a part of my life
+            and for giving me memories worth
+            smiling about.
+        </p>
+
+        <div class="memory">
+
+            <h2>
+                Here's to 19 years and a lifetime more! 🥂
+            </h2>
+
+            <p>
+                Stay happy, stay blessed and keep shining.
+                You deserve all the beautiful things in life.
+            </p>
+
+        </div>
+
+        <h1>Love You! 💗</h1>
+
+        <p>
+            Forever friends, forever memories! ❤️
+        </p>
+
+        <button onclick="nextScreen(1)">
+            Replay Our Surprise 🔄
+        </button>
+
+    </div>
+
+    <div class="progress">6 / 6</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================= -->
+
+<script>
+
+function nextScreen(number) {
+
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+    });
+
+    document.getElementById('screen' + number)
+        .classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+}
+
+function celebrate() {
+
+    document.getElementById('answer').innerHTML =
+        "I knew it! 😂❤️ You're stuck with me forever!";
+
+    for (let i = 0; i < 35; i++) {
+        createHeart();
+    }
+
+    setTimeout(() => {
+        nextScreen(6);
+    }, 1800);
+
+}
+
+function createHeart() {
+
+    const heart = document.createElement('div');
+
+    heart.className = 'heart-float';
+
+    heart.innerHTML = ['❤️', '💗', '💕', '💖', '🎉'][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + 'vw';
+
+    heart.style.fontSize =
+        (18 + Math.random() * 25) + 'px';
+
+    heart.style.animationDuration =
+        (3 + Math.random() * 4) + 's';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+
+}
+
+// Floating hearts in background
+
+setInterval(createHeart, 800);
+
+</script>
+
+</body>
+</html>
